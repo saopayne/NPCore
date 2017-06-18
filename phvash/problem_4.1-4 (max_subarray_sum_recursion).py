@@ -1,5 +1,3 @@
-import sys
-
 def max_subarray_sum(array, n):
     if len(array) == 1:
         return array[0]
@@ -16,7 +14,7 @@ def max_subarray_sum(array, n):
     return max(left_mss, right_mss, max_crossing_subarray)
 
 def find_max_crossing_sum(array, start_index, mid_point, end_index):
-    left_sum = sys.maxsize * -1
+    left_sum = float('-inf')
     sum = 0
     for index in range(mid_point-1, -1, -1):
         sum += array[index]
@@ -24,7 +22,7 @@ def find_max_crossing_sum(array, start_index, mid_point, end_index):
             left_sum = sum
         # print("sum: {}, left_sum:{}".format(sum, left_sum))
 
-    right_sum = sys.maxsize * -1
+    right_sum = float('-inf')
     sum = 0
     for index in range(mid_point, end_index):
         sum += array[index]
