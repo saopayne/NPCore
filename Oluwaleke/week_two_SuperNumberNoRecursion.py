@@ -2,6 +2,7 @@ def __super_num__(num, q):
     number = num.__str__()
     length = number.__len__()
     addition = 0
+    float('-inf')
     for i in range(0, length):
         addition += int(number[i])
     total = addition * q
