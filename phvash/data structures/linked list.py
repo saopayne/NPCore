@@ -21,9 +21,31 @@ class LinkedList:
 		self.head = Node()
 
 	def insert(self, data):
+		""" 
+			inserts a new element at the root of the list
+			i.e the new element becomes the first element in the list
+
+		 """
 		temp = Node(data)
 		temp.set_next_node(self.head)
 		self.head = temp
+
+	def alternative_insert(self, data):
+		""" 
+			Inserts the new item at the tip of the list
+			i.e the new element becomes the last item in the list
+
+		"""
+
+		current_node = self.head
+
+		while current_node.get_next_node():
+			current_node = current_node.get_next_node()
+		
+		current_node.set_data(data)
+		current_node.set_next_node(Node())
+		print("current_node.get_data(): ", current_node.get_data())
+		print("nxt data: ", current_node.get_next_node().get_data())
 
 	def remove(self, data):
 		""" Removes the first occurence of an item in the list"""
@@ -107,5 +129,12 @@ if __name__ == '__main__':
 	test_list.update("World", "Bye")
 	first_item = test_list.head
 	print(first_item.get_data())
+
+	test_list.alternative_insert("See Ya")
+	print("new size", test_list.size())
+	first_item = test_list.head
+	print(first_item.get_data())
+	second_item = first_item.get_next_node()
+	print(second_item.get_data())
 
 
