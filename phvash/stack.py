@@ -12,7 +12,6 @@ class Stack:
 			raise("Underflow error")
 		else:
 			self.top = self.top - 1
-			
 			return self.s[self.top + 1]
 
 
