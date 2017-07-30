@@ -13,7 +13,7 @@ class Generator:
 		return random_number
 
 	def next_item_mux(self):
-		""" linear congruential generator """
+		""" multiplication congruential generator """
 		random_number = (self.previous_item * self.constant_one + 
 							self.constant_two)%(self.constant_three)
 		self.previous_item = random_number
