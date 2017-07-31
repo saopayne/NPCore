@@ -38,8 +38,6 @@ class Queue:
 					current_node.set_next_node(new_node)
 					break
 				current_node = current_node.get_next_node()
-			
-
 		self.length += 1
 
 	def remove(self):
@@ -48,4 +46,31 @@ class Queue:
 		self.length -= 1
 		return first_node.get_data()
 
-		
+class ImprovedQueue:
+	"""
+		Performs all operations in constant time
+		Policy: FIFO
+	"""
+
+	def __init__(self):
+		self.length = 0
+		self.head = None
+		self.last_node = None
+
+	def insert(self, item):
+		new_node = Node(item)
+		if self.length == 0:
+			self.head = self.last_node = new_node
+		else:
+			# update last node
+			self.last_node.set_next_node(new_node)
+			self.last_node = new_node
+		self.length += 1
+
+	def remove(self):
+		first_node = self.head
+		if self.length == 1:
+			self.last_node = None
+		self.head = first_node.get_next_node()
+		self.length -= 1
+		return first_node.get_data()
